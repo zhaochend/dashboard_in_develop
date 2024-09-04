@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.total_container {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+:root {
+  --sidebar_length: max(260px, 20vw);
+}
+
+.sidebar_outer {
+  width: var(--sidebar_length);
+  height: 100vh;
+  position: fixed;
+  background-color: #f2f2f2;
+  box-shadow: #666 -2px 2px 4px 4px;
+  /* border-top-right-radius: 60px; */
+  overflow: auto;
+  z-index: 1;
+  border-right: 1px solid #354458;
+  transition: all 0.3s ease;
+}
+
+.sidebar_button {
+  display: none;
+}
+
+.sidebar_inner {
+  padding: 30px 30px;
+}
+
+.sidebar_inner div {
+  margin: 20px 0;
+}
+
+.content_main_container {
+  width: 80vw;
+  height: 1600px;
+  background-color: #fff;
+  position: fixed;
+  left: 20%;
+  overflow: auto;
+  /* border: 5px solid #333; */
+}
+
+.sidebar_title_text {
+  color: #333;
+  font-size: 32px;
+  font-family: "Segoe UI";
+}
+
+.split_line {
+  width: 90%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #29aba4;
+}
+
+.content_split_line {
+  width: 100%;
+  height: 1px;
+  border-radius: 5px;
+  background-color: #354458;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+
+.sidebar_chap_title {
+  color: #333;
+  padding: 20px 0;
+  font-size: 28px;
+  cursor: pointer;
+  /* font-family: "Georgia"; */
+  font-family: Cambria;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.sidebar_para h3:hover {
+  color: #29aba4;
+}
+
+.sidebar_para a {
+  text-decoration: none;
+}
+
+.sidebar_para p {
+  text-decoration: none;
+  color: #333;
+  margin: 20px 0;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: Cambria;
+  transition: 0.3s;
+}
+
+.sidebar_para p:hover {
+  color: #29aba4;
+}
+
+.content_title_01 {
+  display: flex;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.narrow_screen_page_top {
+  gap: 30px;
+}
+
+.narrow_screen_page_top img {
+  display: none;
+}
+
+.narrow_screen_page_top .sidebar_title {
+  display: none;
+}
+
+.content_title_01 h2 {
+  font-size: 42px;
+  color: #333;
+}
+
+.content_title_02 {
+  background-color: #354458;
+  color: #fff;
+
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 28px;
+  font-family: Georgia;
+}
+
+.content_text {
+  padding-left: 20px;
+  font-size: 18px;
+  font-family: Monsterrat;
+  line-height: 36px;
+}
+
+/* Start: make sidebar flexible */
+
+.fa-xmark {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  right: 10%;
+  top: 30px;
+}
+
+.sidebar_button .fa-bars {
+  display: flex;
+}
+
+@media (max-width: 1280px) {
+  .fa-xmark {
+    display: block;
+    opacity: 1;
+    color: #333;
+    font-size: 30px;
+    justify-content: right;
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 30px;
+  }
+
+  .sidebar_outer {
+    /* width: 20px; */
+    left: -500px;
+    /* box-shadow: none; */
+    /* display: none; */
+  }
+
+  .sidebar_button {
+    display: flex;
+    /* width: 60px;
+    height: 60px; */
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .sidebar_button i {
+    font-size: 28px;
+    color: #333;
+  }
+
+  .narrow_screen_page_top {
+    display: flex;
+    align-items: center;
+  }
+
+  .narrow_screen_page_top img {
+    display: flex;
+  }
+
+  .narrow_screen_page_top .sidebar_title {
+    display: flex;
+  }
+
+  .content_main_container {
+    width: 100vw;
+    left: auto;
+  }
+
+  .content_title_01 h2 {
+    font-size: 32px;
+    color: #333;
+  }
+
+  .sidebar_title_text {
+    color: #333;
+    font-size: 22px;
+    font-family: "Segoe UI";
+  }
+}
+
+.sidebar_outer.is_active {
+  left: 0;
+  width: 360px;
+}
+
+/* End: make sidebar flexible */

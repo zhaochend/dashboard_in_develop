@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic List with data-date</title>
+  </head>
+  <body>
+    <ul id="year-list">
+      <!-- li>a标签将通过JavaScript动态生成 -->
+    </ul>
+
+    <script>
+      // 获取ul元素
+      const ul = document.getElementById("year-list");
+
+      // 设置起始年份和结束年份
+      const startYear = 1950;
+      const endYear = 2024; // 你可以根据需要调整结束年份
+
+      // 循环生成li>a标签
+      for (let year = startYear; year <= endYear; year++) {
+        // 创建li元素
+        const li = document.createElement("li");
+
+        // 创建a元素
+        const a = document.createElement("a");
+
+        // 设置a标签的内容和href属性
+        a.textContent = year;
+        a.href = `#${year}`; // 你可以根据需要调整href的内容
+
+        // 设置a标签的data-date属性
+        a.setAttribute("data-date", year);
+
+        // 将a元素添加到li元素中
+        li.appendChild(a);
+
+        // 将li元素添加到ul中
+        ul.appendChild(li);
+      }
+    </script>
+  </body>
+</html>
