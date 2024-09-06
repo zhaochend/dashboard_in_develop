@@ -11,6 +11,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- link for leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/georaster"></script>
+    <script src="https://unpkg.com/georaster-layer-for-leaflet"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- link for our style .css file -->
+    <link rel="stylesheet" href="./leaflet_map/map.css" />
+    <script src="https://registry.npmmirror.com/jquery/3.7.1/files/dist/jquery.min.js"></script>
     <title>test title</title>
   </head>
 
@@ -18,7 +31,7 @@
     <header>
       <nav class="navbar">
         <div class="navbar__container">
-          <h2 href="/" id="navbar__logo">PORTO</h2>
+          <h2 href="/" id="navbar__logo">RICE FORECAST</h2>
           <div class="navbar__toggle" id="mobile_menu">
             <span class="bar">
               <i class="fa-solid fa-bars"></i>
@@ -29,8 +42,16 @@
             <span class="bar">123</span> -->
           </div>
           <ul class="navbar__menu">
-            <li class="navbar__item">
-              <a href="/" class="navbar__links"> REGIONS </a>
+            <li class="navbar__item dropdown">
+              <a href="/" class="navbar__links"> COUNTRIES </a>
+              <ul class="dropdown__menu">
+                <li><a href="/india" class="dropdown__link">India</a></li>
+                <li><a href="/vietnam" class="dropdown__link">Vietnam</a></li>
+                <li><a href="/thailand" class="dropdown__link">Thailand</a></li>
+                <li><a href="/cambodia" class="dropdown__link">Cambodia</a></li>
+                <li><a href="/laos" class="dropdown__link">Laos</a></li>
+                <li><a href="/myanmar" class="dropdown__link">Myanmar</a></li>
+              </ul>
             </li>
             <li class="navbar__item">
               <a
@@ -61,15 +82,12 @@
         </div>
       </nav>
     </header>
-    <div class="page_title">
-      <h2>Main Page</h2>
-    </div>
 
     <!-- Homepage Start -->
     <section class="homepage" id="home">
       <div class="content">
         <div class="text">
-          <h1>Integrated South / Southeast Asia Agriculture Forecasting</h1>
+          <h1>Rice Forecasting in Southeast Asia</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
             impedit vel architecto, ipsum a facilis atque blanditiis, sint ullam
@@ -79,44 +97,64 @@
         </div>
         <a href="./dashboard/dashboard_main_02.html">Explore Dashboard</a>
       </div>
+      <!-- Partners Section -->
+    <section class="partners-section">
+      <img src="./img/partners/ostin.jpg" class="h-[40px] grayscale opacity-50 transition duration-500" alt="OSTin">
+      <img src="./img/partners/sfa.jpg" class="h-[40px] grayscale opacity-50 transition duration-500" alt="SFA">
+      <img src="./img/partners/nus.png" class="h-[40px] grayscale opacity-50 transition duration-500" alt="NUS">
+      <img src="./img/partners/tmsi.jpg" class="h-[40px] grayscale opacity-50 transition duration-500" alt="TMSI">
+    </section> 
     </section>
-
+    
     <!-- Homepoage End -->
 
     <!-- Service Start -->
     <section class="service" id="services">
       <div class="container">
         <div class="section-title">
-          <h2>REGIONS FOCUSED</h2>
+          <h2>MAJOR COUNTRIES</h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-            molestias placeat, fugit, nobis dolorem quod similique, eaque quia
-            soluta quae maiores a rerum velit. Dolores quod eligendi vero
-            recusandae aperiam?
+            Comprehensive insights into rice production across multiple regions.
+            Explore detailed analytics and reports to stay informed about global rice trends.
           </p>
         </div>
 
         <ul class="cards flex">
           <li class="card">
-            <img src="./img/bg.jpg" alt="region01" />
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/India.png" alt="India" /></a>
+            </div>
             <a href="/"><h3 class="dashboard_region_nav">India</h3></a>
           </li>
           <li class="card">
-            <img src="./img/bg.jpg" alt="region01" />
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/Vietnam.png" alt="Vietnam" /></a>
+            </div>
             <a href="/"><h3 class="dashboard_region_nav">Vietnam</h3></a>
           </li>
           <li class="card">
-            <img src="./img/bg.jpg" alt="region01" />
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/thailand.png" alt="Thailand" /></a>
+            </div>
             <a href="/"><h3 class="dashboard_region_nav">Thailand</h3></a>
           </li>
           <li class="card">
-            <img src="./img/bg.jpg" alt="region01" />
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/Cambodia.png" alt="Cambodia" /></a>
+            </div>
             <a href="/"><h3 class="dashboard_region_nav">Cambodia</h3></a>
           </li>
           <li class="card">
-            <img src="./img/bg.jpg" alt="region02" />
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/Laos.png" alt="Laos" /></a>
+            </div>
+            <a href="/"><h3 class="dashboard_region_nav">Laos</h3></a>
+          </li>
+          <li class="card">
+            <div class="sphere">
+              <a href="./dashboard/dashboard_main_02.html"><img src="./img/Myanmar.png" alt="Myanmar" /></a>
+            </div>
             <a href="/"><h3 class="dashboard_region_nav">Myanmar</h3></a>
-            <!-- <h3>Myanmar</h3> -->
           </li>
         </ul>
       </div>
@@ -124,94 +162,16 @@
     <!-- Service End -->
 
     <!-- Warning Start -->
-    <section class="warning_section" id="warning">
-      <div class="container_warning">
-        <div class="section-title-02">
-          <h2>LATEST REPORTS</h2>
+      <div class="total_container">
+        <div class="map_section section_title">
+          <h3>Rice Planting Area</h3>
         </div>
-
-        <ul class="warning_block_ul">
-          <li class="warning_block">
-            <div class="news_container">
-              <a href="/">
-                <h3>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos
-                  sit quibusdam modi provident iusto officiis! Asperiores veniam
-                  sint corrupti recusandae. Illo est minima quo vel recusandae,
-                  nesciunt quis delectus facilis.
-                </h3>
-                <div class="additional_info">
-                  <h4>India</h4>
-                  <h4>June 2024</h4>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="warning_block">
-            <div class="news_container">
-              <a href="/">
-                <h3>
-                  Heavy Precipitation Affected the Harvest in Northern India
-                  Significantly
-                </h3>
-                <div class="additional_info">
-                  <h4>India</h4>
-                  <h4>June 2024</h4>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="warning_block">
-            <div class="news_container">
-              <a href="/">
-                <h3>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Fugiat dolorem voluptas tenetur. Molestiae quasi pariatur
-                  ratione nisi porro dolorum tenetur rem ullam ducimus illum
-                  mollitia, facilis dicta vel? Dignissimos, impedit.
-                </h3>
-                <div class="additional_info">
-                  <h4>India</h4>
-                  <h4>June 2024</h4>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="warning_block">
-            <div class="news_container">
-              <a href="/">
-                <h3>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Fugiat dolorem voluptas tenetur. Molestiae quasi pariatur
-                  ratione nisi porro dolorum tenetur rem ullam ducimus illum
-                  mollitia, facilis dicta vel? Dignissimos, impedit.
-                </h3>
-                <div class="additional_info">
-                  <h4>India</h4>
-                  <h4>June 2024</h4>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="warning_block">
-            <div class="news_container">
-              <a href="/">
-                <h3>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Fugiat dolorem voluptas tenetur. Molestiae quasi pariatur
-                  ratione nisi porro dolorum tenetur rem ullam ducimus illum
-                  mollitia, facilis dicta vel? Dignissimos, impedit.
-                </h3>
-                <div class="additional_info">
-                  <h4>India</h4>
-                  <h4>June 2024</h4>
-                </div>
-              </a>
-            </div>
-          </li>
-        </ul>
+        <div id="map_container">
+          <script src="./leaflet_map/indexmap.js"></script>
+        </div>
       </div>
-    </section>
+    
+    
     <!-- Warning End -->
 
     <!-- About Us Start -->
@@ -233,7 +193,7 @@
     <!-- Page end Start -->
     <div class="page_end_container">
       <div class="page_end_col">
-        <h3>Title 1</h3>
+        <h3>Contact US</h3>
         <p class="page_end_insti">National University of Singapore</p>
         <p class="page_end_insti">21 Lower Kent Ridge Rd, Singapore 119077</p>
         <p class="page_end_insti">(+65) 8000 6000</p>

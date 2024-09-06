@@ -52,6 +52,7 @@ body {
 .navbar__item {
   height: 80px;
   font-weight: 600;
+  position: relative;
 }
 
 .navbar__links {
@@ -65,6 +66,57 @@ body {
   /* padding: 10px; */
   width: max(120px, 8vw);
   height: 100%;
+  padding-right: 10px;
+}
+
+.navbar__item.dropdown .navbar__links:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2px; /* Adjust position of triangle */
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #35b762; /* Color of the triangle */
+}
+.navbar__item.dropdown:hover .navbar__links:after {
+  border-top-color: #fff; /* Change triangle color on hover, if desired */
+}
+/* Dropdown menu hidden by default */
+.dropdown__menu {
+  display: none;
+  position: absolute;
+  background-color: #354458;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  top: 100%; /* Positioning the dropdown below the parent item */
+  left: 0;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+/* Dropdown menu items */
+.dropdown__menu li {
+  width: 100%;
+}
+
+.dropdown__link {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 15px;
+  display: block;
+}
+
+.dropdown__link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Show dropdown menu on hover */
+.navbar__item:hover .dropdown__menu {
+  display: block;
 }
 
 .navbar__btn {
@@ -184,6 +236,10 @@ body {
     height: 80px;
     margin: 0;
   }
+  partners-section {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 #mobile_menu {
@@ -230,7 +286,7 @@ body {
   height: 40vh;
   min-height: 120px;
   width: 100%;
-  background: url("img/mountains.png");
+  background: url("img/mainbg.png");
   background-position: center;
   background-size: cover;
 }
@@ -271,14 +327,14 @@ body {
   /* height: 200vh; */
   width: 280px;
   /* text-align: center; */
-  color: #333;
+  color: #fff;
   text-decoration: none;
-  background: #fff;
+  background: #35b762;
   border-radius: 8px;
   padding: 10px 30px;
   border: 2px solid #fff;
   box-shadow: rgba(0, 0, 0, 0.3);
-  font-size: 18px;
+  font-size: 20px;
   transition: 0.5s ease;
 }
 
@@ -287,6 +343,26 @@ body {
   background: rgba(0, 0, 0, 0.3);
 }
 
+/* Styling for the Partners Section */
+.partners-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adjust spacing between images */
+  padding: 5px 0;
+}
+
+.partners-section img {
+  height: 40px;
+  width: 60px;
+  opacity: 0.5;
+  transition: all 0.5s ease-in-out;
+}
+
+.partners-section img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
 /* Service */
 
 section {
@@ -349,8 +425,8 @@ section .cards {
 }
 
 section .card {
-  width: calc(100% / 5 - 60px);
-  min-width: 240px;
+  width: calc(100% / 6 - 60px);
+  min-width: 200px;
   height: 300px;
   text-align: center;
   list-style: none;
@@ -363,7 +439,7 @@ section .card {
 }
 
 section .card:hover {
-  width: calc(100% / 5 - 60px);
+  width: calc(100% / 6 - 60px);
   min-width: 240px;
   cursor: pointer;
   text-align: center;
@@ -534,4 +610,83 @@ section .card img:hover {
 
 .end_link a {
   text-decoration: none;
+}
+
+/* Start setting the section title style */
+
+.map_section {
+  /* background-color: #fff; */
+  background-color: #354458;
+  /* color: #354458; */
+  padding: 0 10px;
+  border: 1px solid #ddd;
+}
+
+.section_title h3 {
+  color: #fff;
+  font-size: 22px;
+  padding: 20px 20px;
+}
+
+.data_explorer_section {
+  /* background-color: #fff; */
+  background-color: #354458;
+  /* color: #354458; */
+  padding: 0 10px;
+  border: 1px solid #ddd;
+}
+
+/* End setting the section title style */
+
+#map_container {
+  /* margin: 10px 20px; */
+  /* background-color: #fff; */
+  /* border-radius: 8px; */
+  position: relative;
+  /* width: calc(70vw - 48px); */
+  height: 72vh;
+  overflow: hidden;
+}
+
+.info.legend {
+  background-color: white;
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #555;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.info.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.popup-content {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #a2c2e6, #0044cc); /* Blue gradient background */
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 300px;
+  font-size: 16px;
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  text-align: center; /* Center-align text */
+  margin: 0; /* Remove default margin */
+  box-shadow: none; /* Remove shadow */
+}
+
+.popup-content h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.popup-content p {
+  margin: 0;
+  color: #fff;
 }
